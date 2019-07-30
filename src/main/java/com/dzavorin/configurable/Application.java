@@ -8,14 +8,17 @@ import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
 @EnableSpringConfigured
 public class Application {
 
-  public static void main(String[] args) {
-    System.out.println("Hello World!");
+  public static void main(String[] args) throws Exception {
 
     SpringApplication.run(Application.class, args);
 
-    Account account = new Account();
+    //via constructor
+    Account accountConstructor = new Account();
+    System.out.println(accountConstructor.helloAccount());
 
-    account.testConfigurable();
+    //via reflection
+    Account accountReflection = (Account) Account.class.getDeclaredConstructors()[0].newInstance();
+    System.out.println(accountReflection.helloAccount());
   }
 
 }

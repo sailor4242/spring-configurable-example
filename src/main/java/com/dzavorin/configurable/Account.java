@@ -10,8 +10,8 @@ public class Account {
   @Autowired
   private MyService service;
 
-  public void testConfigurable() {
-    System.out.println(service.returnHello());
+  public String helloAccount() {
+    return service.returnHello() + " " + this.getClass().getSimpleName();
   }
 
 }
