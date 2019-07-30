@@ -1,9 +1,5 @@
 package com.dzavorin.configurable;
 
-import com.dzavorin.configurable.cadence.HelloWorkflow;
-import com.dzavorin.configurable.cadence.HelloWorkflowImpl;
-import com.uber.cadence.client.WorkflowClient;
-import com.uber.cadence.worker.Worker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
