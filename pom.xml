@@ -27,9 +27,21 @@
 		</dependency>
 
     <dependency>
+      <groupId>com.uber.cadence</groupId>
+      <artifactId>cadence-client</artifactId>
+      <version>2.2.0</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aspects</artifactId>
       <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
     </dependency>
 
 		<dependency>
@@ -50,12 +62,17 @@
         <artifactId>aspectj-maven-plugin</artifactId>
         <configuration>
           <showWeaveInfo>true</showWeaveInfo>
+          <forceAjcCompile>true</forceAjcCompile>
+          <sources/>
           <source>1.8</source>
           <target>1.8</target>
           <Xlint>ignore</Xlint>
           <complianceLevel>1.8</complianceLevel>
           <encoding>UTF-8</encoding>
           <verbose>false</verbose>
+          <weaveDirectories>
+            <weaveDirectory>${project.build.directory}/classes</weaveDirectory>
+          </weaveDirectories>
           <aspectLibraries>
             <aspectLibrary>
               <groupId>org.springframework</groupId>
@@ -65,6 +82,7 @@
         </configuration>
         <executions>
           <execution>
+            <phase>process-classes</phase>
             <goals>
               <goal>compile</goal>
               <goal>test-compile</goal>

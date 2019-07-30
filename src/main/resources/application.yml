@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active:
+      - default
+
+---
+spring:
+  profiles: cadence
+
+cadence:
+    host: localhost
+    port: 7933
+    domain: sample
+
